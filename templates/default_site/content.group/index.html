@@ -18,17 +18,18 @@
             <div class="large-3 columns">
               <label>Marca</label>
               {exp:filtros:brand}
-              <div id="result"></div>
             </div>
             <div class="large-3 columns">
               <label>Modelo</label>
               <div id="modelos">
-                {exp:filtros:model marca="xxx"}
+                {exp:filtros:model marca="@@@"}
               </div>
             </div>
             <div class="large-3 columns">
               <label>Versión</label>
-              {exp:filtros:version modelo="A4"}
+              <div id="versiones">
+                {exp:filtros:version modelo="@@@"}
+              </div>
             </div>
             <div class="large-3 columns">
               <label>Año</label>
@@ -64,6 +65,23 @@ $( "#marca" )
              success: function(response)
              { // show response from the php script.
                $('#modelos').html(response);
+             }
+           });
+    });
+  })
+  $( "#modelo" )
+  .change(function (evt) {
+    var str = "";
+    $( "#modelo option:selected" ).each(function() {
+      str = "modelo="+$( this ).val();
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/versiones/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#versiones').html(response);
              }
            });
     });
