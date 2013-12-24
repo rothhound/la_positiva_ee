@@ -29,6 +29,7 @@ $config['is_system_on'] = "y";
 $config['allow_extensions'] = 'y';
 $config['site_label'] = 'tuCirculo';
 $config['cookie_prefix'] = '';
+$config['secure_forms'] = "n";
 
 
 //------------------------------STUFF ADDED--------------------------
