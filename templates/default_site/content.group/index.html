@@ -16,6 +16,10 @@
     </div>
 				  <div class="row">
             <div class="large-3 columns">
+              <form type="POST" id="marca_form">
+                <input type="hidden" name="XID" value="{XID_HASH}">   
+                <input id="marca_field" name="marca" value="">
+              </form>
               <label>Marca</label>
               {exp:filtros:brand}
               <div id="result"></div>
@@ -55,12 +59,13 @@ $( "#marca" )
   .change(function (evt) {
     var str = "";
     $( "#marca option:selected" ).each(function() {
-      str = "marca="+$( this ).val();
+      str = $( this ).val();
+      $('#marca_field').val(str);
       evt.preventDefault();
       $.ajax({
              type: "POST",
-             url: "/content/modelos/",
-             data: str, // serializes the form's elements.
+             url: "/?/content/modelos/",
+             data: $('#marca_form').serialize(), // serializes the form's elements.
              success: function(response)
              { // show response from the php script.
                $('#modelos').html(response);
