@@ -87,6 +87,16 @@ class Filtros
         ee()->db->where('modelo',$modelo);
         $query = ee()->db->get('exp_valor_autos');
         return $query->num_rows();
-    }  
+    } 
+
+    public function year(){
+        $version = ee()->TMPL->fetch_param('version');
+        ee()->db->distinct('version');
+        ee()->db->select('version');
+        ee()->db->where('modelo',$modelo);
+        $query = ee()->db->get('exp_valor_autos');
+        return $query->num_rows();
+    }
+} 
 /* End of file pi.rating.php */
 /* Location: ./system/expressionengine/third_party/rating/pi.rating.php */
