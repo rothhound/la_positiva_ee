@@ -72,6 +72,7 @@ $( "#marca" )
 
   $( "#modelo" ).change(function (evt) {
     var str = "";
+    alert("blablabla");
     $( "#modelo option:selected" ).each(function() {
       str = "modelo="+$( this ).val();
       evt.preventDefault();
