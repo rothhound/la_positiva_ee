@@ -53,10 +53,11 @@
 
 <script>
 $( "#marca" )
-  .change(function () {
+  .change(function (evt) {
     var str = "";
     $( "#marca option:selected" ).each(function() {
       str = "marca="+$( this ).val();
+      evt.preventDefault();
       $.ajax({
              type: "POST",
              url: "/?/content/modelos/",
@@ -68,22 +69,9 @@ $( "#marca" )
            });
     });
   });
-
-  $( "#modelo" )
-    .change(function () {
-    var str = "";
-    $( "#modelo option:selected" ).each(function() {
-      str = "modelo="+$( this ).val();
-      $.ajax({
-             type: "POST",
-             url: "/?/content/versiones/",
-             data: str, // serializes the form's elements.
-             success: function(response)
-             { // show response from the php script.
-               $('#versiones').html(response);
-             }
-           });
-    });
+</script>
+<script>
+  $( "#modelo" ).change(function (evt) {
+    console.log("sadsadasdasda");
   });
-
 </script>
