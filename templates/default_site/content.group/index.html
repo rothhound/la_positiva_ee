@@ -70,10 +70,10 @@ $( "#marca" )
     });
   });
 
-  $( "#modelo" ).change(function (evt) {
+  $( "#test" ).change(function (evt) {
     var str = "";
     alert("blablabla");
-    $( "#modelo option:selected" ).each(function() {
+    $( "#test option:selected" ).each(function() {
       str = "modelo="+$( this ).val();
       console.log(str);
       evt.preventDefault();
