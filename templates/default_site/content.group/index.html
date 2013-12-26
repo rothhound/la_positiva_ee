@@ -68,12 +68,11 @@ $( "#marca" )
              }
            });
     });
-  }).change();
+  });
 
-  $( "#modelo" )
-  .change(function (evt) {
+  $( "#test" ).change(function (evt) {
     var str = "";
-    $( "#modelo option:selected" ).each(function() {
+    $( "#test option:selected" ).each(function() {
       str = "modelo="+$( this ).val();
       evt.preventDefault();
       $.ajax({
@@ -86,6 +85,6 @@ $( "#marca" )
              }
            });
     });
-  }).change();
+  });
 
 </script>
