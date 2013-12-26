@@ -110,7 +110,7 @@ class Filtros
         ee()->db->select('*');
         ee()->db->where('version', $version);
         $query = ee()->db->get('exp_valor_autos');
-        return  $query->num_rows();;
+        return var_dump($query);
     }
 } 
 /* End of file pi.rating.php */
