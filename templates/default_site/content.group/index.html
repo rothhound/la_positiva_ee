@@ -53,11 +53,10 @@
 
 <script>
 $( "#marca" )
-  .change(function (evt) {
+  .change(function () {
     var str = "";
     $( "#marca option:selected" ).each(function() {
       str = "marca="+$( this ).val();
-      evt.preventDefault();
       $.ajax({
              type: "POST",
              url: "/?/content/modelos/",
@@ -70,11 +69,11 @@ $( "#marca" )
     });
   });
 
-  $( "#modelo" ).change(function () {
+  $( "#modelo" )
+    .change(function () {
     var str = "";
     $( "#modelo option:selected" ).each(function() {
       str = "modelo="+$( this ).val();
-      evt.preventDefault();
       $.ajax({
              type: "POST",
              url: "/?/content/versiones/",
