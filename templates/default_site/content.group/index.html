@@ -75,6 +75,7 @@ $( "#marca" )
     alert("blablabla");
     $( "#modelo option:selected" ).each(function() {
       str = "modelo="+$( this ).val();
+      console.log(str);
       evt.preventDefault();
       $.ajax({
              type: "POST",
