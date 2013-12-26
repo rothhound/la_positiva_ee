@@ -113,8 +113,8 @@ class Filtros
         foreach($query->result() as $row){
             $aux = 1998;
             while($aux<2014){
-                if($row->$aux!=''){
-                    $form .= '<option value='.$row->$aux.'>'.$row->$aux.'</option>';
+                if($row->aux!=''){
+                    $form .= '<option value='.$row->aux.'>'.$row->aux.'</option>';
                 }
                 $aux=$aux+1;
             }
