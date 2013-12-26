@@ -101,7 +101,7 @@ class Filtros
         foreach($query->result() as $row){
             $form .= '<option value='.$row->version.'>'.$row->version.'</option>';
         }
-        return var_dump($form);
+        return $form;
     } 
 
     public function year(){
@@ -110,7 +110,16 @@ class Filtros
         ee()->db->select('*');
         ee()->db->where('version', $version);
         $query = ee()->db->get('exp_valor_autos');
-        return var_dump($query);
+        foreach($query->result() as $row){
+            
+            while($aux<2014){
+                if($row->aux!=''){
+                    $form .= '<option value='.$row->aux.'>'.$row->aux.'</option>';
+                }
+                $aux=$aux+1;
+            }
+        }
+        return $form;
     }
 } 
 /* End of file pi.rating.php */
