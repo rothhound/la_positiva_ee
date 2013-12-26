@@ -79,7 +79,7 @@ class Filtros
     }
 
     public function model(){
-        $form = '<select name="modelo" id="modelo">';
+        $form = '';
         $marca = ee()->TMPL->fetch_param('marca');
         ee()->db->distinct('modelo');
         ee()->db->select('modelo');
@@ -88,7 +88,6 @@ class Filtros
         foreach($query->result() as $row){
             $form .= '<option value='.$row->modelo.'>'.$row->modelo.'</option>';
         }
-        $form = $form.'</select>';
         return $form;
     }
 
