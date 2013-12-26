@@ -92,7 +92,7 @@ class Filtros
     }
 
     public function version(){
-        $form = '<select name="version" id="version">';
+        $form = '';
         $modelo = ee()->TMPL->fetch_param('modelo');
         ee()->db->distinct('version');
         ee()->db->select('version');
@@ -101,7 +101,6 @@ class Filtros
         foreach($query->result() as $row){
             $form .= '<option value='.$row->version.'>'.$row->version.'</option>';
         }
-        $form = $form.'</select>';
         return $form;
     } 
 
