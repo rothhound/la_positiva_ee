@@ -101,7 +101,7 @@ class Filtros
         foreach($query->result() as $row){
             $form .= '<option value='.$row->version.'>'.$row->version.'</option>';
         }
-        return $form;
+        return var_dump($form);
     } 
 
     public function year(){
