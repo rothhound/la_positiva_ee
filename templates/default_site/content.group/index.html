@@ -22,13 +22,13 @@
             <div class="large-3 columns">
               <label>Modelo</label>
               <div id="modelos">
-                {exp:filtros:model marca="@@@"}
+                {exp:filtros:model modelo="@@@"}
               </div>
             </div>
             <div class="large-3 columns">
               <label>Versión</label>
               <div id="versiones">
-                {exp:filtros:version modelo="@@@"}
+                {exp:filtros:version version="@@@"}
               </div>
             </div>
             <div class="large-3 columns">
@@ -70,9 +70,9 @@ $( "#marca" )
     });
   });
 
-  $( "#test" ).change(function (evt) {
+  $( "#modelo" ).change(function (evt) {
     var str = "";
-    $( "#test option:selected" ).each(function() {
+    $( "#modelo option:selected" ).each(function() {
       str = "modelo="+$( this ).val();
       evt.preventDefault();
       $.ajax({
