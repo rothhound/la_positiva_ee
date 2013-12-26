@@ -80,10 +80,10 @@ class Filtros
 
     public function model(){
         $form = '<select name="modelo" id="modelo">';
-        $modelo = ee()->TMPL->fetch_param('modelo');
+        $marca = ee()->TMPL->fetch_param('marca');
         ee()->db->distinct('modelo');
         ee()->db->select('modelo');
-        ee()->db->where('modelo',$modelo);
+        ee()->db->where('marca',$marca);
         $query = ee()->db->get('exp_valor_autos');
         foreach($query->result() as $row){
             $form .= '<option value='.$row->modelo.'>'.$row->modelo.'</option>';
