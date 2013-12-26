@@ -105,12 +105,37 @@ class Filtros
     } 
 
     public function year(){
+        $form = '';
         $version = ee()->TMPL->fetch_param('version');
-        ee()->db->distinct('version');
         ee()->db->select('version');
-        ee()->db->where('modelo',$modelo);
+        ee()->db->where('version', $version);
+        ee()->db->where('2013 !=', '');
+        ee()->db->where('2012 !=', '');
+        ee()->db->where('2011 !=', '');
+        ee()->db->where('2010 !=', '');
+        ee()->db->where('2009 !=', '');
+        ee()->db->where('2008 !=', '');
+        ee()->db->where('2007 !=', '');
+        ee()->db->where('2006 !=', '');
+        ee()->db->where('2005 !=', '');
+        ee()->db->where('2004 !=', '');
+        ee()->db->where('2003 !=', '');
+        ee()->db->where('2002 !=', '');
+        ee()->db->where('2001 !=', '');
+        ee()->db->where('2000 !=', '');
+        ee()->db->where('1999 !=', '');
+        ee()->db->where('1998 !=', '');
         $query = ee()->db->get('exp_valor_autos');
-        return $query->num_rows();
+        foreach($query->result() as $row){
+            $aux = 0;
+            while($aux<16){
+                if($row->$aux!=0){
+                    $form .= '<option value='.$row->$aux.'>'.$row->$aux.'</option>';
+                }
+                $aux=$aux+1;
+            }
+        }
+        return $form;
     }
 } 
 /* End of file pi.rating.php */

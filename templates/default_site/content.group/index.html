@@ -37,12 +37,11 @@
             </div>
             <div class="large-3 columns">
               <label>Año</label>
-              <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
+              <div id="versiones">
+                <select name="año" id="ano">
+                  {exp:filtros:year version="@@@"}
+                </select>
+              </div>
             </div>
 				  </div>
 				  
@@ -56,6 +55,23 @@
 </html>
 
 <script>
+
+$( "#version" ).change(function (evt) {
+    var str = "";
+    $( "#version option:selected" ).each(function() {
+      str = "version="+$( this ).val();
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/ano/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#ano').html(response);
+             }
+           });
+    });
+  });
 
 $( "#modelo" ).change(function (evt) {
     var str = "";
