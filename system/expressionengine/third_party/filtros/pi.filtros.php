@@ -116,7 +116,54 @@ class Filtros
         ee()->db->where('version', $version);
         $query = ee()->db->get('exp_valor_autos');
         foreach($query->result() as $row){
-            $form .= '<option value='.$row->ano_1998.'>'.$row->ano_1998.'</option>';
+            if ($row->ano_1998!='') {
+                $form .= '<option value='.$row->ano_1998.'>'.1998.'</option>';
+            }
+            if ($row->ano_1999!='') {
+                $form .= '<option value='.$row->ano_1999.'>'.1999.'</option>';
+            }
+            if ($row->ano_2000!='') {
+                $form .= '<option value='.$row->ano_2000.'>'.2000.'</option>';
+            }
+            if ($row->ano_2001!='') {
+                $form .= '<option value='.$row->ano_2001.'>'.2001.'</option>';
+            }
+            if ($row->ano_2002!='') {
+                $form .= '<option value='.$row->ano_2002.'>'.2002.'</option>';
+            }
+            if ($row->ano_2003!='') {
+                $form .= '<option value='.$row->ano_2003.'>'.2003.'</option>';
+            }
+            if ($row->ano_2004!='') {
+                $form .= '<option value='.$row->ano_2004.'>'.2004.'</option>';
+            }
+            if ($row->ano_2005!='') {
+                $form .= '<option value='.$row->ano_2005.'>'.2005.'</option>';
+            }
+            if ($row->ano_2006!='') {
+                $form .= '<option value='.$row->ano_2006.'>'.2006.'</option>';
+            }
+            if ($row->ano_2007!='') {
+                $form .= '<option value='.$row->ano_2007.'>'.2007.'</option>';
+            }
+            if ($row->ano_2008!='') {
+                $form .= '<option value='.$row->ano_2008.'>'.2008.'</option>';
+            }
+            if ($row->ano_2009!='') {
+                $form .= '<option value='.$row->ano_2009.'>'.2009.'</option>';
+            }
+            if ($row->ano_2010!='') {
+                $form .= '<option value='.$row->ano_2010.'>'.2010.'</option>';
+            }
+            if ($row->ano_2011!='') {
+                $form .= '<option value='.$row->ano_2011.'>'.2011.'</option>';
+            }
+            if ($row->ano_2012!='') {
+                $form .= '<option value='.$row->ano_2012.'>'.2012.'</option>';
+            }
+            if ($row->ano_2013!='') {
+                $form .= '<option value='.$row->ano_2013.'>'.2013.'</option>';
+            }
 
         }
         return $form;
