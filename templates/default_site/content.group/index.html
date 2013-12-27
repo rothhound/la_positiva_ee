@@ -111,9 +111,9 @@ $( "#marca" )
     $( "#marca option:selected" ).each(function() {
       str = $( this ).val();
       if(str=='MARCA'){
-        $('#modelo option:eq(1)').prop('selected', true);
-        $('#version option:eq(1)').prop('selected', true);
-        $('#ano option:eq(1)').prop('selected', true);
+        $('#modelo option:eq(0)').prop('selected', true);
+        $('#version option:eq(0)').prop('selected', true);
+        $('#ano option:eq(0)').prop('selected', true);
       }
       else{
       str = str.replace(/-/gi," ");
