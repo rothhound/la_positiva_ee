@@ -14,6 +14,7 @@
         <h1>La Positiva</h1>
       </div>
     </div>
+    <div class="large-12 columns">
 				  <div class="row">
             <div class="large-3 columns">
               <label>Marca</label>
@@ -44,6 +45,27 @@
               </div>
             </div>
 				  </div>
+          <div class="large-12 columns">
+            <div class="row">
+              <div class="large-3 columns">
+                <label>Región</label>
+                {exp:filtros:region}
+              </div>
+              <div class="large-3 columns">
+                <label>Distrito</label>
+                <select name="distrito" id="distrito">
+                   <option value="Ditrito" selected>DISTRITO</option>
+                   {exp:filtros:district distrito="@@@"}
+                </select>
+              </div>
+              <div class="large-3 columns" >
+                <label>RESULTADO:</label>
+              <div id="resultado">
+              </div>
+              </div>
+            </div>
+          </div>
+    </div>
 				  
     
     <script src="js/jquery.js"></script>
@@ -55,6 +77,31 @@
 </html>
 
 <script>
+$( "#region" ).change(function (evt) {
+    var str = "";
+    $('#distrito option:eq(0)').prop('selected', true);
+    $('#resultado').html(' ');
+    $( "#region option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='REGIÓN'){
+        $('#distrito option:eq(0)').prop('selected', true);
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      str = "region="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/distrito/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#distrito').html(response);
+             }
+           });
+      }
+    });
+  });
 
 $( "#version" ).change(function (evt) {
     var str = "";

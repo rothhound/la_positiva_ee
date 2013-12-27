@@ -168,6 +168,37 @@ class Filtros
         }
         return $form;
     }
+
+    public function region(){
+        $form = '<select name="region" id="region"> <option value="REGION" selected>REGIÓN</option>';
+        ee()->db->distinct('region');
+        ee()->db->select('region');
+        $query = ee()->db->get('exp_agencias');
+        foreach($query->result() as $row){
+            $aux=$row->region;
+            $aux= str_replace(" ", "-",$aux);
+            $form .= '<option value='.$aux.'>'.$row->region.'</option>';
+        }
+        $form = $form.'</select>';
+        return $form;
+
+    }
+
+    public function district(){
+        $form = '';
+        $district = ee()->TMPL->fetch_param('distrito');
+        ee()->db->distinct('distrito');
+        ee()->db->select('distrito');
+        ee()->db->where('distrito',$district);
+        $query = ee()->db->get('exp_agencias');
+        foreach($query->result() as $row){
+            $aux=$row->distrito;
+            $aux= str_replace(" ", "-",$aux);
+            $form .= '<option value='.$aux.'>'.$row->distrito.'</option>';
+        }
+        return $form;
+
+    }
 } 
 /* End of file pi.rating.php */
 /* Location: ./system/expressionengine/third_party/rating/pi.rating.php */
