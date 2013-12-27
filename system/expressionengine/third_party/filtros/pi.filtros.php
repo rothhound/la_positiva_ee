@@ -115,6 +115,7 @@ class Filtros
         ee()->db->select('*');
         ee()->db->where('version', $version);
         $query = ee()->db->get('exp_valor_autos');
+        var_dump($query->result());
         /*
         foreach($query->result() as $row){
             $form .= $row->$aux. "-";
@@ -125,8 +126,7 @@ class Filtros
                 }
                 $aux=$aux+1;
             }*/
-        }
-        return var_dump($query);
+        return $form;
     }
 } 
 /* End of file pi.rating.php */
