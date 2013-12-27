@@ -60,6 +60,10 @@ $( "#version" ).change(function (evt) {
     var str = "";
     $( "#version option:selected" ).each(function() {
       str = $( this ).val();
+      if(str=='VERSIÓN'){
+        $('.ano option:eq(1)');
+      }
+      else{
       str = str.replace(/-/gi," ");
       str = "version="+str;
       evt.preventDefault();
@@ -72,6 +76,7 @@ $( "#version" ).change(function (evt) {
                $('#ano').html(response);
              }
            });
+      }
     });
   });
 
@@ -79,6 +84,11 @@ $( "#modelo" ).change(function (evt) {
     var str = "";
     $( "#modelo option:selected" ).each(function() {
       str = $( this ).val();
+      if(str=='MARCA'){
+        $('#version option:eq(1)');
+        $('#ano option:eq(1)');
+      }
+      else{
       str = str.replace(/-/gi," ");
       str = "modelo="+str;
       evt.preventDefault();
@@ -91,6 +101,7 @@ $( "#modelo" ).change(function (evt) {
                $('#version').html(response);
              }
            });
+      }
     });
   });
 
@@ -99,6 +110,12 @@ $( "#marca" )
     var str = "";
     $( "#marca option:selected" ).each(function() {
       str = $( this ).val();
+      if(str=='MARCA'){
+        $('#modelo option:eq(1)');
+        $('#version option:eq(1)');
+        $('#ano option:eq(1)');
+      }
+      else{
       str = str.replace(/-/gi," ");
       str = "marca="+str;
       evt.preventDefault();
@@ -111,6 +128,7 @@ $( "#marca" )
                $('#modelo').html(response);
              }
            });
+      }
     });
   });
 
