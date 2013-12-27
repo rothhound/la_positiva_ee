@@ -206,9 +206,9 @@ class Filtros
         ee()->db->where('distrito',$district);
         $query = ee()->db->get('exp_agencias');
         foreach($query->result() as $row){
-            $div .= '<p>'.$row->oficina.'</p><br>';
-            $div .= '<p>'.$row->direccion.'</p><br>';
-            $div .= '<p>'.$row->ubicacion.'</p><br>';
+            $div .= '<p>'.$row->oficina.'</p>';
+            $div .= '<p>'.$row->direccion.'</p>';
+            $div .= '<p>'.$row->ubicacion.'</p>';
         }
         return $div;
 
