@@ -200,6 +200,18 @@ class Filtros
     }
 
     public function agency(){
+        $div ='';
+        $district = ee()->TMPL->fetch_param('distrito');
+        ee()->db->select('*');
+        ee()->db->where('distrito',$district);
+        $query = ee()->db->get('exp_agencias');
+        foreach($query->result() as $row){
+            $div .= '<p>'.$row->oficina.'</p><br>';
+            $div .= '<p>'.$row->direccion.'</p><br>';
+            $div .= '<p>'.$row->ubicacion.'</p><br>';
+        }
+        return $div;
+
 
     }
 } 
