@@ -58,10 +58,11 @@
 
 $( "#version" ).change(function (evt) {
     var str = "";
+    $('#ano option:eq(0)').prop('selected', true);
     $( "#version option:selected" ).each(function() {
       str = $( this ).val();
       if(str=='VERSIÓN'){
-        $('#ano option:eq(1)').prop('selected', true);
+        $('#ano option:eq(0)').prop('selected', true);
       }
       else{
       str = str.replace(/-/gi," ");
@@ -82,11 +83,13 @@ $( "#version" ).change(function (evt) {
 
 $( "#modelo" ).change(function (evt) {
     var str = "";
+    $('#version option:eq(0)').prop('selected', true);
+    $('#ano option:eq(0)').prop('selected', true);
     $( "#modelo option:selected" ).each(function() {
       str = $( this ).val();
       if(str=='MARCA'){
-        $('#version option:eq(1)').prop('selected', true);
-        $('#ano option:eq(1)').prop('selected', true);
+        $('#version option:eq(0)').prop('selected', true);
+        $('#ano option:eq(0)').prop('selected', true);
       }
       else{
       str = str.replace(/-/gi," ");
@@ -108,6 +111,9 @@ $( "#modelo" ).change(function (evt) {
 $( "#marca" )
   .change(function (evt) {
     var str = "";
+    $('#modelo option:eq(0)').prop('selected', true);
+    $('#version option:eq(0)').prop('selected', true);
+    $('#ano option:eq(0)').prop('selected', true);
     $( "#marca option:selected" ).each(function() {
       str = $( this ).val();
       if(str=='MARCA'){
