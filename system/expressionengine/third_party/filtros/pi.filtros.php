@@ -94,7 +94,7 @@ class Filtros
     }
 
     public function version(){
-        $form = '';
+        $form = '<option value="VERSION" selected>VERSIÓN</option>';
         $modelo = ee()->TMPL->fetch_param('modelo');
         ee()->db->distinct('version');
         ee()->db->select('version');
@@ -109,7 +109,7 @@ class Filtros
     } 
 
     public function year(){
-        $form = '';
+        $form = '<option value="AÑO" selected>AÑO</option>';
         $aux = '1998';
         $version = ee()->TMPL->fetch_param('version');
         ee()->db->select('*');
