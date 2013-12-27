@@ -186,10 +186,9 @@ class Filtros
 
     public function district(){
         $form = '<option value="DISTRITO" selected>DISTRITO</option>';
-        $district = ee()->TMPL->fetch_param('distrito');
-        ee()->db->distinct('distrito');
+        $region = ee()->TMPL->fetch_param('region');
         ee()->db->select('distrito');
-        ee()->db->where('distrito',$district);
+        ee()->db->where('region',$region);
         $query = ee()->db->get('exp_agencias');
         foreach($query->result() as $row){
             $aux=$row->distrito;
@@ -197,6 +196,10 @@ class Filtros
             $form .= '<option value='.$aux.'>'.$row->distrito.'</option>';
         }
         return $form;
+
+    }
+
+    public function agency(){
 
     }
 } 
