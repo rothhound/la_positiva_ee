@@ -114,7 +114,33 @@ class Filtros
         ee()->db->select('*');
         ee()->db->where('version', $version);
         $query = ee()->db->get('exp_valor_autos');
-        return  $query->num_rows();
+        foreach($query->result() as $row){
+            $form .= $row->1998. "-";
+            $form .= $row->1999. "-";
+            $form .= $row->2000. "-";
+            $form .= $row->2001. "-";
+            $form .= $row->2002. "-";
+            $form .= $row->2003. "-";
+            $form .= $row->2004. "-";
+            $form .= $row->2005. "-";
+            $form .= $row->2006. "-";
+            $form .= $row->2007. "-";
+            $form .= $row->2008. "-";
+            $form .= $row->2009. "-";
+            $form .= $row->2010. "-";
+            $form .= $row->2011. "-";
+            $form .= $row->2012. "-";
+            $form .= $row->2013. "-";
+
+            /*$aux=1998;
+            while($aux<2014){
+                if($row->aux!=''){
+                    $form .= '<option value='.$row->aux.'>'.$row->aux.'</option>';
+                }
+                $aux=$aux+1;
+            }*/
+        }
+        return $form;
     }
 } 
 /* End of file pi.rating.php */
