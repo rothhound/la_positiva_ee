@@ -115,17 +115,10 @@ class Filtros
         ee()->db->select('*');
         ee()->db->where('version', $version);
         $query = ee()->db->get('exp_valor_autos');
-        var_dump($query->result());
-        /*
         foreach($query->result() as $row){
-            $form .= $row->$aux. "-";
-            $aux=1998;
-            while($aux<2014){
-                if($row->aux!=''){
-                    $form .= '<option value='.$row->aux.'>'.$row->aux.'</option>';
-                }
-                $aux=$aux+1;
-            }*/
+            $form .= '<option value='.$row->ano_1998.'>'.$row->ano_1998.'</option>';
+
+        }
         return $form;
     }
 } 
