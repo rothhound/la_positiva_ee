@@ -185,7 +185,7 @@ class Filtros
     }
 
     public function district(){
-        $form = '';
+        $form = '<option value="DISTRITO" selected>DISTRITO</option>';
         $district = ee()->TMPL->fetch_param('distrito');
         ee()->db->distinct('distrito');
         ee()->db->select('distrito');
