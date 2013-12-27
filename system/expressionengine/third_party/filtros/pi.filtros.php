@@ -86,7 +86,7 @@ class Filtros
         ee()->db->where('marca',$marca);
         $query = ee()->db->get('exp_valor_autos');
         foreach($query->result() as $row){
-            $aux=$row->marca;
+            $aux=$row->modelo;
             $aux= str_replace(" ", "-",$aux);
             $form .= '<option value='.$aux.'>'.$row->modelo.'</option>';
         }
@@ -101,7 +101,7 @@ class Filtros
         ee()->db->where('modelo',$modelo);
         $query = ee()->db->get('exp_valor_autos');
         foreach($query->result() as $row){
-            $aux=$row->marca;
+            $aux=$row->version;
             $aux= str_replace(" ", "-",$aux);
             $form .= '<option value='.$aux.'>'.$row->version.'</option>';
         }
