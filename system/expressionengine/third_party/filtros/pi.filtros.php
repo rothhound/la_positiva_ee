@@ -110,14 +110,13 @@ class Filtros
 
     public function year(){
         $form = '';
+        $aux = '1998';
         $version = ee()->TMPL->fetch_param('version');
         ee()->db->select('*');
         ee()->db->where('version', $version);
         $query = ee()->db->get('exp_valor_autos');
         foreach($query->result() as $row){
-            $form .= $row->'1998'. "-";
-            $form .= $row->'1999'. "-";
-            $form .= $row->'2000'. "-";
+            $form .= $row->$aux. "-";
             /*$aux=1998;
             while($aux<2014){
                 if($row->aux!=''){
