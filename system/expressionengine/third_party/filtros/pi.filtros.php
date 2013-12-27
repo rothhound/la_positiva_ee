@@ -65,7 +65,7 @@ class Filtros
     // END
 
     public function brand(){
-        $form = '<select name="marca" id="marca">' ;
+        $form = '<select name="marca" id="marca"> <option value="MARCA" selected>MARCA</option>';
         ee()->db->distinct('marca');
         ee()->db->select('marca');
         $query = ee()->db->get('exp_valor_autos');
