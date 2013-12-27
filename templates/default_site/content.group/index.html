@@ -59,7 +59,9 @@
 $( "#version" ).change(function (evt) {
     var str = "";
     $( "#version option:selected" ).each(function() {
-      str = "version="+$( this ).val();
+      str = $( this ).val();
+      str = str.replace(/-/gi," ");
+      str = "version="+str;
       evt.preventDefault();
       $.ajax({
              type: "POST",
@@ -76,7 +78,9 @@ $( "#version" ).change(function (evt) {
 $( "#modelo" ).change(function (evt) {
     var str = "";
     $( "#modelo option:selected" ).each(function() {
-      str = "modelo="+$( this ).val();
+      str = $( this ).val();
+      str = str.replace(/-/gi," ");
+      str = "modelo="+str;
       evt.preventDefault();
       $.ajax({
              type: "POST",
@@ -94,7 +98,9 @@ $( "#marca" )
   .change(function (evt) {
     var str = "";
     $( "#marca option:selected" ).each(function() {
-      str = "marca="+$( this ).val();
+      str = $( this ).val();
+      str = str.replace(/-/gi," ");
+      str = "marca="+str;
       evt.preventDefault();
       $.ajax({
              type: "POST",

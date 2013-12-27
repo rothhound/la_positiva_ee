@@ -70,9 +70,9 @@ class Filtros
         ee()->db->select('marca');
         $query = ee()->db->get('exp_valor_autos');
         foreach($query->result() as $row){
-            $form .= '<option value='.$row->marca.'>'.$row->marca.'</option>';
-            $key = $row->marca;
-            $options[$key] = $row->marca;
+            $aux=$row->marca;
+            $aux= str_replace(" ", "-",$aux);
+            $form .= '<option value='.$aux.'>'.$row->marca.'</option>';
         }
         $form = $form.'</select>';
         return $form;
@@ -86,7 +86,9 @@ class Filtros
         ee()->db->where('marca',$marca);
         $query = ee()->db->get('exp_valor_autos');
         foreach($query->result() as $row){
-            $form .= '<option value='.$row->modelo.'>'.$row->modelo.'</option>';
+            $aux=$row->marca;
+            $aux= str_replace(" ", "-",$aux);
+            $form .= '<option value='.$aux.'>'.$row->modelo.'</option>';
         }
         return $form;
     }
@@ -99,7 +101,9 @@ class Filtros
         ee()->db->where('modelo',$modelo);
         $query = ee()->db->get('exp_valor_autos');
         foreach($query->result() as $row){
-            $form .= '<option value='.$row->version.'>'.$row->version.'</option>';
+            $aux=$row->marca;
+            $aux= str_replace(" ", "-",$aux);
+            $form .= '<option value='.$aux.'>'.$row->version.'</option>';
         }
         return $form;
     } 
