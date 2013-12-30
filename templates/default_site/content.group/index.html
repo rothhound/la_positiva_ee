@@ -161,7 +161,7 @@ $( "#modelo" ).change(function (evt) {
     $('#ano option:eq(0)').prop('selected', true);
     $( "#modelo option:selected" ).each(function() {
       str = $( this ).val();
-      if(str=='MARCA'){
+      if(str==='MARCA'){
         $('#version option:eq(0)').prop('selected', true);
         $('#ano option:eq(0)').prop('selected', true);
       }
