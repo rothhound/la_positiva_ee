@@ -19,7 +19,7 @@ $plugin_info = array(
     'pi_usage'        => Rating::usage()
 );
             
-class Rating 
+class Email
 {
 
     var $return_data = "";
@@ -54,7 +54,7 @@ class Rating
         The Memberlist Plugin simply outputs a
         list of 15 members of your site.
 
-            {exp:rating}
+            {exp:email}
 
         This is an incredibly simple Plugin.
             <?php
@@ -64,7 +64,7 @@ class Rating
     }
     // END
 
-    public function Send_Email(){
+    public function send_email(){
         $this->load->library('email','','correo');
         $this->correo->from('gms122@gmail.com', 'Gianfranco Montoya');
         $this->correo->to('gms122@gmail.com');
@@ -83,5 +83,5 @@ class Rating
 
     
 }
-/* End of file pi.rating.php */
-/* Location: ./system/expressionengine/third_party/rating/pi.rating.php */
+/* End of file pi.email.php */
+/* Location: ./system/expressionengine/third_party/send_email/pi.email.php */
