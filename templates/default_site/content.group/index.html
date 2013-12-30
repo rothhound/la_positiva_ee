@@ -1,18 +1,4 @@
 <!doctype html>
-{exp:shine_pdf:make
-  format=“A4”
-  default_font_size=“11”
-  default_font=“Helvetica”
-  margin_left=“15”
-  margin_right=“15”
-  margin_top=“16”
-  margin_bottom=“16”
-  margin_header=“9”
-  margin_footer=“9”
-  orientation=“p”
-  margin_top_auto=“no”
-  margin_bottom_auto=“no”
-}
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -87,6 +73,14 @@
       $(document).foundation();
     </script>
   </body>
+  {exp:eei_tcpdf:params 
+  logo="age38dev.jpg" 
+  cache="y"
+  language="ita" 
+  title="This is the title" 
+  author="Massimiliano Lombardi" 
+  subject="Hi Man" 
+  keywords="Some Words"}
 </html>
 <script>
 $( "#distrito" ).change(function (evt) {
