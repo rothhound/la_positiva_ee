@@ -34,8 +34,6 @@ class Email
          * @return  string
          */
     public function __construct(){
-        $this->EE =& get_instance();
-        $var = $this->EE->input->post('count');
     }
 
     // --------------------------------------------------------------------
