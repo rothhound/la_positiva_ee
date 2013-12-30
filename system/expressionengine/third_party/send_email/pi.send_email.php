@@ -64,7 +64,7 @@ class Email
     }
     // END
 
-    public function send_email(){
+    public function send_mail(){
         $this->load->library('email','','correo');
         $this->correo->from('gms122@gmail.com', 'Gianfranco Montoya');
         $this->correo->to('gms122@gmail.com');
