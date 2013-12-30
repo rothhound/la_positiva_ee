@@ -68,7 +68,7 @@ class Email
         ee()->email->to('gms122@gmail.com');
         ee()->email->subject('la positiva');
         ee()->email->message(entities_to_ascii('pruebas ... '));
-        if(ee()->email->Send();)
+        if(ee()->email->Send())
           {
            return 'Correo enviado';
           }
