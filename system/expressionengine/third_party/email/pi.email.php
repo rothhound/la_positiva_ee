@@ -65,6 +65,9 @@ class Email
     public function send_mail(){
         ee()->load->library('email');
         ee()->load->helper('text');
+        ee()->email->wordwrap = true;
+        ee()->email->mailtype = 'text';
+        ee()->email->from('lapositivape@gmail.com','la positiva');
         ee()->email->to('gms122@gmail.com');
         ee()->email->subject('la positiva');
         ee()->email->message(entities_to_ascii('pruebas ... '));
