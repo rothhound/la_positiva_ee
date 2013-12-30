@@ -11,12 +11,12 @@
  */
 
 $plugin_info = array(
-    'pi_name'         => 'Send_Email',
+    'pi_name'         => 'Email',
     'pi_version'      => '1.0',
     'pi_author'       => 'Gianfranco Montoya',
     'pi_author_url'   => 'http://www.ayuinc.com/',
     'pi_description'  => 'Send an email with the desired information.',
-    'pi_usage'        => Rating::usage()
+    'pi_usage'        => Email::usage()
 );
             
 class Email
