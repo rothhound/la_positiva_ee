@@ -63,14 +63,14 @@ class Email
     // END
 
     public function send_mail(){
-        $this->load->library('Email','','correo');
-        $this->correo->from('gms122@gmail.com', 'Gianfranco Montoya');
-        $this->correo->to('gms122@gmail.com');
-        $this->correo->subject('Esto es una prueba');
-        $this->correo->message('Aqui va el cuerpo del mensaje');
-        if($this->correo->send())
+        ee()->load->library('email');
+        ee()->load->helper('text');
+        ee()->email->to('gms122@gmail.com');
+        ee()->email->subject('la positiva');
+        ee()->email->message(entities_to_ascii('pruebas ... '));
+        if(ee()->email->Send();)
           {
-           echo 'Correo enviado';
+           return 'Correo enviado';
           }
           else
           {
