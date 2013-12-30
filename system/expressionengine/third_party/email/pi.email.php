@@ -74,7 +74,7 @@ class Email
           }
           else
           {
-           show_error($this->correo->print_debugger());
+           return 'Correo NO enviado';
           }
     }    
     
