@@ -1,0 +1,18 @@
+<div id="myModal-es" class="reveal-modal large">
+	<div class="small-12 large-12 columns container">
+		{exp:user:register return="es/gracias" admin_register="yes" error_page="content/error" form:data-abide="" }
+			<div class="large-5 columns">
+			<input type="email" name="username" placeholder="Correo Electrónico" required>
+			<small class="error">Correo electrónico inválido.</small>
+			</div>
+			<div class="large-4 columns">
+			<input type="password" name="password" placeholder="Contraseña" required>
+			<small class="error">Se requiere un password con más de 8 caracteres.</small>
+			</div>
+			<div class="large-3 columns">
+			<button href="#" class="medium button expand register" type="submit">Únete ahora</button>
+			</div>
+		{/exp:user:register}
+	</div>
+<a class="close-reveal-modal">&#215;</a>					
+</div>
