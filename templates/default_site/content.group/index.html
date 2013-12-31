@@ -62,7 +62,20 @@
               </div>
               </div>
               <div class="large-3 columns" >
-                
+                {exp:send_email 
+    from_name="La Positiva" 
+    from_email="lapositvape@gmail.com" 
+    to="gms122@gmail.com" 
+    subject="Seguro Automovil"
+}
+Dear Wacky Silly Hairpieces,
+
+Can you do something about {screen_name}s hair? Though he does got to get back to work.
+
+Thank you,
+
+Joe Kissel
+{/exp:send_email} 
               </div>
             </div>
           </div>
@@ -73,14 +86,6 @@
       $(document).foundation();
     </script>
   </body>
-  {exp:eei_tcpdf:params 
-  logo="age38dev.jpg" 
-  cache="y"
-  language="ita" 
-  title="This is the title" 
-  author="Massimiliano Lombardi" 
-  subject="Hi Man" 
-  keywords="Some Words"}
 </html>
 <script>
 $( "#distrito" ).change(function (evt) {
