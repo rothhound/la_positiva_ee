@@ -8,6 +8,7 @@
     <script src="js/modernizr.js"></script>
   </head>
   <body>
+    
     <div class="row">
       <div class="large-12 columns">
         <h1>La Positiva</h1>
@@ -62,24 +63,13 @@
               </div>
               </div>
               <div class="large-3 columns" >
-                {exp:send_email 
-    from_name="La Positiva" 
-    from_email="lapositvape@gmail.com" 
-    to="gms122@gmail.com" 
-    subject="Seguro Automovil"
-}
-Dear Wacky Silly Hairpieces,
-
-Can you do something about {screen_name}s hair? Though he does got to get back to work.
-
-Thank you,
-
-Joe Kissel
-{/exp:send_email} 
+                
               </div>
             </div>
           </div>
     </div>
+				  
+    
     <script src="js/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
@@ -87,6 +77,7 @@ Joe Kissel
     </script>
   </body>
 </html>
+
 <script>
 $( "#distrito" ).change(function (evt) {
     var str = "";
@@ -170,7 +161,7 @@ $( "#modelo" ).change(function (evt) {
     $('#ano option:eq(0)').prop('selected', true);
     $( "#modelo option:selected" ).each(function() {
       str = $( this ).val();
-      if(str==='MARCA'){
+      if(str=='MARCA'){
         $('#version option:eq(0)').prop('selected', true);
         $('#ano option:eq(0)').prop('selected', true);
       }
