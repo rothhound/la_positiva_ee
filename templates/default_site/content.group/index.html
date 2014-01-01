@@ -108,3 +108,141 @@
     </script>
 </body>
 </html>
+
+<script>
+$( "#distrito" ).change(function (evt) {
+    var str = "";
+    $( "#distrito option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='DISTRITO'){
+        $('#resultado').html('No hay resultado');
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      str = "distrito="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/agencia/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#resultado').html(response);
+             }
+           });
+      }
+    });
+  });
+
+$( "#region" ).change(function (evt) {
+    var str = "";
+    $('#distrito option:eq(0)').prop('selected', true);
+    $('#resultado').html('No hay resultado');
+    $( "#region option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='REGIÓN'){
+        $('#distrito option:eq(0)').prop('selected', true);
+        $('#resultado').html('No hay resultado');
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      str = "region="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/distrito/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#distrito').html(response);
+             }
+           });
+      }
+    });
+  });
+
+$( "#version" ).change(function (evt) {
+    var str = "";
+    $('#ano option:eq(0)').prop('selected', true);
+    $( "#version option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='VERSIÓN'){
+        $('#ano option:eq(0)').prop('selected', true);
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      str = "version="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/ano/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#ano').html(response);
+             }
+           });
+      }
+    });
+  });
+
+$( "#modelo" ).change(function (evt) {
+    var str = "";
+    $('#version option:eq(0)').prop('selected', true);
+    $('#ano option:eq(0)').prop('selected', true);
+    $( "#modelo option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str==='MARCA'){
+        $('#version option:eq(0)').prop('selected', true);
+        $('#ano option:eq(0)').prop('selected', true);
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      str = "modelo="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/versiones/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#version').html(response);
+             }
+           });
+      }
+    });
+  });
+
+$( "#marca" )
+  .change(function (evt) {
+    var str = "";
+    $('#modelo option:eq(0)').prop('selected', true);
+    $('#version option:eq(0)').prop('selected', true);
+    $('#ano option:eq(0)').prop('selected', true);
+    $( "#marca option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='MARCA'){
+        $('#modelo option:eq(0)').prop('selected', true);
+        $('#version option:eq(0)').prop('selected', true);
+        $('#ano option:eq(0)').prop('selected', true);
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      str = "marca="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/modelos/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#modelo').html(response);
+             }
+           });
+      }
+    });
+  });
+
+  
+
+</script>
