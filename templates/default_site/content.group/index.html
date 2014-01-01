@@ -172,12 +172,13 @@ $( "#region" ).change(function (evt) {
   });
 
 $("#ano").change(function ( evt ){
-  var str = "";
+  var str1 = "";
+  var str2 = "";
     $( "#ano option:selected" ).each(function() {
-      str = $( "#ano" ).val();
-      $("#form_ano").val(str);
-      str = $( "#ano" ).text(); 
-      $("#form_precio").val(str);
+      str1 = $( "#ano" ).val();
+      str2 = $( this ).text(); 
+      $("#form_ano").val(str2);
+      $("#form_precio").val(str1);
       
     });
 });
