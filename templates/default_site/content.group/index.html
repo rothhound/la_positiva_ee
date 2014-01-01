@@ -71,7 +71,14 @@
                             </span>
                         </div>
                         <div class="large-3 large-uncentered medium-6 medium-centered columns">
-                            <button class="expand" type="submit" formmethod="POST">COTIZAR</button>
+                            <form action="/?/content/form" type="POST">
+                              <input id="form_marca" type="text" name="marca">
+                              <input id="form_modelo" type="text" name="modelo">
+                              <input id="form_version" type="text" name="version">
+                              <input id="form_ano" type="text" name="ano">
+                              <input id="form_precio" type="text" name="precio">
+                              <button id="cotizar" class="expand" type="submit">COTIZAR</button>
+                            </form>
                         </div>
                     </form>
                 </div>
@@ -108,6 +115,11 @@
 </html>
 
 <script>
+
+$("#cotizar").click(function(){
+  console.log("feliz año nuevo");
+});
+
 $( "#distrito" ).change(function (evt) {
     var str = "";
     $( "#distrito option:selected" ).each(function() {
@@ -162,13 +174,16 @@ $( "#region" ).change(function (evt) {
 $( "#version" ).change(function (evt) {
     var str = "";
     $('#ano option:eq(0)').prop('selected', true);
+    $('#form_ano').val("");
     $( "#version option:selected" ).each(function() {
       str = $( this ).val();
       if(str=='VERSIÓN'){
         $('#ano option:eq(0)').prop('selected', true);
+        $('#form_ano').val("");
       }
       else{
       str = str.replace(/-/gi," ");
+      $("#form_ano").val(str);
       str = "version="+str;
       evt.preventDefault();
       $.ajax({
@@ -187,15 +202,20 @@ $( "#version" ).change(function (evt) {
 $( "#modelo" ).change(function (evt) {
     var str = "";
     $('#version option:eq(0)').prop('selected', true);
+    $('#form_version').val("");
     $('#ano option:eq(0)').prop('selected', true);
+    $('#form_ano').val("");
     $( "#modelo option:selected" ).each(function() {
       str = $( this ).val();
       if(str==='MARCA'){
         $('#version option:eq(0)').prop('selected', true);
+        $('#form_version').val("");
         $('#ano option:eq(0)').prop('selected', true);
+        $('#form_ano').val("");
       }
       else{
       str = str.replace(/-/gi," ");
+      $("#form_modelo").val(str);
       str = "modelo="+str;
       evt.preventDefault();
       $.ajax({
@@ -215,17 +235,24 @@ $( "#marca" )
   .change(function (evt) {
     var str = "";
     $('#modelo option:eq(0)').prop('selected', true);
+    $('#form_modelo').val("");
     $('#version option:eq(0)').prop('selected', true);
+    $('#form_version').val("");
     $('#ano option:eq(0)').prop('selected', true);
+    $('#form_ano').val("");
     $( "#marca option:selected" ).each(function() {
       str = $( this ).val();
       if(str=='MARCA'){
         $('#modelo option:eq(0)').prop('selected', true);
+        $('#form_modelo').val("");
         $('#version option:eq(0)').prop('selected', true);
+        $('#form_version').val("");
         $('#ano option:eq(0)').prop('selected', true);
+        $('#form_ano').val("");
       }
       else{
       str = str.replace(/-/gi," ");
+      $("#form_marca").val(str);
       str = "marca="+str;
       evt.preventDefault();
       $.ajax({
