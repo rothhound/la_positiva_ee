@@ -21,7 +21,7 @@ $admin_url  = $base_url . '/admin.php';
 $config['app_version'] = '273';
 $config['install_lock'] = "";
 $config['license_number'] = "5343-3237-2705-9088";
-$config['debug'] = "1";
+$config['debug'] = "2";
 $config['cp_url'] = 'http://tucirculo.net/admin.php';
 $config['cp_url'] = $admin_url;
 $config['doc_url'] = "http://ellislab.com/expressionengine/user-guide/";
@@ -160,7 +160,7 @@ $config['url_suffix'] = '';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = TRUE;
+$config['enable_hooks'] = FALSE;
 
 
 /*

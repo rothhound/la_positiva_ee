@@ -9,11 +9,6 @@
 |	http://codeigniter.com/user_guide/general/hooks.html
 |
 */
-$hook['display_override'] = array(
-  'class'    => 'EEI_Tcpdf',
-  'function' => 'output',
-  'filename' => 'pi.eei_tcpdf.php',
-  'filepath' => 'third_party/eei_tcpdf'
-);
+
 /* End of file hooks.php */
 /* Location: ./system/expressionengine/config/hooks.php */

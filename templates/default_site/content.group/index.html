@@ -8,6 +8,7 @@
     <script src="js/modernizr.js"></script>
   </head>
   <body>
+    
     <div class="row">
       <div class="large-12 columns">
         <h1>La Positiva</h1>
@@ -62,10 +63,16 @@
               </div>
               </div>
               <div class="large-3 columns" >
+<<<<<<< HEAD
+=======
+                
+>>>>>>> 58af4c326a29ce6cba06b1a17395a04cb73452bb
               </div>
             </div>
           </div>
     </div>
+				  
+    
     <script src="js/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
@@ -73,6 +80,7 @@
     </script>
   </body>
 </html>
+
 <script>
 $( "#distrito" ).change(function (evt) {
     var str = "";
@@ -156,7 +164,7 @@ $( "#modelo" ).change(function (evt) {
     $('#ano option:eq(0)').prop('selected', true);
     $( "#modelo option:selected" ).each(function() {
       str = $( this ).val();
-      if(str==='MARCA'){
+      if(str=='MARCA'){
         $('#version option:eq(0)').prop('selected', true);
         $('#ano option:eq(0)').prop('selected', true);
       }

@@ -1,11 +1,7 @@
-{exp:user:register return="content/gracias" }
+{exp:user:register return="gracias" }
  
-    <p>Nombre:
+    <p>Username:
         <input type="text" name="username" /></p>
-    <p>Apellido:
-        <input type="text" name="surname" /></p>
-    <p>Telefono:
-        <input type="text" name="phone" /></p>
     <p>Screen Name:
         <input type="text" name="screen_name" /></p>
     <p>Email Address:
@@ -15,16 +11,11 @@
         <input type="password" name="password" /></p>
     <p>Confirm Password:
         <input type="password" name="password_confirm" /></p>
-
-    <p><input type="checkbox" name="accept_terms" value="y" />
-        Accept Terms?</p>
  
     <p><input type="submit" value="Submit" /></p>
-    {exp:email:send_mail}
  
 {if no_results}
     <p>You're currently logged in, and must be logged out to view this form.</p>
-    {exp:email:send_mail}|
 {/if}
  
 {/exp:user:register}
