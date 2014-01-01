@@ -171,6 +171,16 @@ $( "#region" ).change(function (evt) {
     });
   });
 
+$("ano").change(function(){
+    $( "#ano option:selected" ).each(function() {
+      str = $( "#ano" ).val();
+      $("#form_ano").val(str);
+      str = $( "#ano" ).text(); 
+      $("#form_precio").val(str);
+      
+    });
+});
+
 $( "#version" ).change(function (evt) {
     var str = "";
     $('#ano option:eq(0)').prop('selected', true);
@@ -183,7 +193,7 @@ $( "#version" ).change(function (evt) {
       }
       else{
       str = str.replace(/-/gi," ");
-      $("#form_ano").val(str);
+      $("#form_version").val(str);
       str = "version="+str;
       evt.preventDefault();
       $.ajax({
