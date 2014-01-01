@@ -171,7 +171,8 @@ $( "#region" ).change(function (evt) {
     });
   });
 
-$("ano").change(function(){
+$("ano").change(function ( evt ){
+  var str = "";
     $( "#ano option:selected" ).each(function() {
       str = $( "#ano" ).val();
       $("#form_ano").val(str);
