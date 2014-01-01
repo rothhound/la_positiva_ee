@@ -116,8 +116,32 @@
 
 <script>
 
-$("#cotizar").click(function(){
-  console.log("feliz año nuevo");
+$("#cotizar").click(function(evt){
+  type = "";
+  type = ("#form_precio").val();
+  evt.preventDefault();
+  if(type>1500){
+    $.ajax({
+           async: "false",
+           type: "POST",
+           url: "/?/content/masde15000/",
+           data: str, // serializes the form's elements.
+           success: function(response)
+           { // show response from the php script.
+           }
+         });
+  }
+  else{
+    $.ajax({
+           async: "false",
+           type: "POST",
+           url: "/?/content/menosde15000/",
+           data: str, // serializes the form's elements.
+           success: function(response)
+           { // show response from the php script.
+           }
+         });
+  }
 });
 
 $( "#distrito" ).change(function (evt) {
