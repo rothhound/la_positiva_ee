@@ -190,13 +190,10 @@ $( "#region" ).change(function (evt) {
   });
 
 $("#ano").change(function ( evt ){
-  var str1 = "";
-  var str2 = "";
+  var str = "";
     $( "#ano option:selected" ).each(function() {
-      str1 = $( "#ano" ).val();
-      str2 = $( this ).text(); 
-      $("#form_ano").val(str2);
-      $("#form_precio").val(str1);
+      str = $( "#ano" ).val();
+      $("#form_precio").val(str);
       
     });
 });
@@ -204,7 +201,6 @@ $("#ano").change(function ( evt ){
 $( "#version" ).change(function (evt) {
     var str = "";
     $('#ano option:eq(0)').prop('selected', true);
-    $('#form_ano').val("");
     $( "#version option:selected" ).each(function() {
       str = $( this ).val();
       if(str=='VERSIÓN'){
@@ -232,16 +228,12 @@ $( "#version" ).change(function (evt) {
 $( "#modelo" ).change(function (evt) {
     var str = "";
     $('#version option:eq(0)').prop('selected', true);
-    $('#form_version').val("");
     $('#ano option:eq(0)').prop('selected', true);
-    $('#form_ano').val("");
     $( "#modelo option:selected" ).each(function() {
       str = $( this ).val();
       if(str==='MARCA'){
         $('#version option:eq(0)').prop('selected', true);
-        $('#form_version').val("");
         $('#ano option:eq(0)').prop('selected', true);
-        $('#form_ano').val("");
       }
       else{
       str = str.replace(/-/gi," ");
@@ -265,20 +257,14 @@ $( "#marca" )
   .change(function (evt) {
     var str = "";
     $('#modelo option:eq(0)').prop('selected', true);
-    $('#form_modelo').val("");
     $('#version option:eq(0)').prop('selected', true);
-    $('#form_version').val("");
     $('#ano option:eq(0)').prop('selected', true);
-    $('#form_ano').val("");
     $( "#marca option:selected" ).each(function() {
       str = $( this ).val();
       if(str=='MARCA'){
         $('#modelo option:eq(0)').prop('selected', true);
-        $('#form_modelo').val("");
         $('#version option:eq(0)').prop('selected', true);
-        $('#form_version').val("");
         $('#ano option:eq(0)').prop('selected', true);
-        $('#form_ano').val("");
       }
       else{
       str = str.replace(/-/gi," ");
