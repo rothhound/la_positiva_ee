@@ -43,7 +43,7 @@
         <div class="row full-width">
             <div class="large-12 small-10 small-centered columns">
                 <div class="row">
-                    <form class="quote" action="'#">
+                    <form class="quote" action="/content/form" type="POST">
                         <div class="large-3 medium-6 columns">
                             <span class="selector-big">
                                 {exp:filtros:brand}
@@ -65,20 +65,14 @@
                         </div>
                         <div class="large-2 medium-6 columns">
                             <span class="selector-big">
-                                <select name="año" id="ano">
+                                <select name="precio" id="ano">
                                   <option value="AÑO" selected>AÑO</option>
                                 </select>
                             </span>
                         </div>
                         <div class="large-3 large-uncentered medium-6 medium-centered columns">
-                            <form action="/content/form" type="POST">
-                              <input id="form_marca" type="text" name="marca">
-                              <input id="form_modelo" type="text" name="modelo">
-                              <input id="form_version" type="text" name="version">
-                              <input id="form_ano" type="text" name="ano">
-                              <input id="form_precio" type="text" name="precio">
-                              <button id="cotizar" class="expand" type="submit">COTIZAR</button>
-                            </form>
+                        <input id="form_ano" type="text" name="ano">
+                        <button id="cotizar" class="expand" type="submit" formaction="/?/content/form.html">COTIZAR</button>
                         </div>
                     </form>
                 </div>
