@@ -71,7 +71,7 @@
                             </span>
                         </div>
                         <div class="large-3 large-uncentered medium-6 medium-centered columns">
-                        <input id="form_precio" type="text" name="ano">
+                        <input id="form_ano" type="text" name="ano">
                         <button id="cotizar" class="expand" type="submit" formaction="/?/content/form.html">COTIZAR</button>
                         </div>
                     </form>
@@ -192,8 +192,8 @@ $( "#region" ).change(function (evt) {
 $("#ano").change(function ( evt ){
   var str = "";
     $( "#ano option:selected" ).each(function() {
-      str = $( "#ano" ).val();
-      $("#form_precio").val(str);
+      str = $( "#ano" ).text();
+      $("#form_ano").val(str);
       
     });
 });
