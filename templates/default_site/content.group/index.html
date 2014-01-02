@@ -112,7 +112,7 @@
 
 $("#cotizar").submit(function(evt){
   type = "";
-  type = ("#form_precio").val();
+  type = ("#ano option:selected").val();
   evt.preventDefault();
   console.log(type);
   if(type>1500){
