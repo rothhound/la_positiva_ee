@@ -43,7 +43,7 @@
         <div class="row full-width">
             <div class="large-12 small-10 small-centered columns">
                 <div class="row">
-                    <form id="cotizar" class="quote" type="POST">
+                    <form id="cotizar" class="quote" type="POST" action="#">
                         <div class="large-3 medium-6 columns">
                             <span class="selector-big">
                                 {exp:filtros:brand}
@@ -109,7 +109,7 @@
 </html>
 
 <script>
-
+/*
 $("#cotizar").submit(function(evt){
   type = "";
   type = $("#ano").val();
@@ -142,7 +142,7 @@ $("#cotizar").submit(function(evt){
          });
   }
 });
-
+*/
 $( "#distrito" ).change(function (evt) {
     var str = "";
     $( "#distrito option:selected" ).each(function() {
@@ -196,10 +196,24 @@ $( "#region" ).change(function (evt) {
 
 $("#ano").change(function ( evt ){
   var str = "";
+  var url = "";
     $( "#ano option:selected" ).each(function() {
       str = $( this ).text();
       $("#form_ano").val(str);
-      
+      option = $( this ).val();
+      if(option>15000){
+        url = "/?/content/mas_de_15k.html";
+      }
+      else{
+        if(option<15001 || option>10001){
+          utl = "/?/content/entre_10k_y_15k.html";
+        }
+        else{
+          url = "/?/content/menor_de_10k.html";
+        }
+      }
+      $('#cotizar').attr('action', url); //this fails silently
+      $('#cotizar').get(0).setAttribute('action', url); 
     });
 });
 
