@@ -114,7 +114,9 @@ $("#cotizar").click(function(evt){
   type = "";
   type = ("#form_precio").val();
   evt.preventDefault();
+  console.log(type);
   if(type>1500){
+    alert("mayor de 115k");
     $.ajax({
            async: "false",
            type: "POST",
@@ -127,6 +129,7 @@ $("#cotizar").click(function(evt){
   }
   else{
     $.ajax({
+      alert("menor de 115k");
            async: "false",
            type: "POST",
            url: "/?/content/menor_de_10k/",
