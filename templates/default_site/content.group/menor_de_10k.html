@@ -14,9 +14,9 @@
         <div class="row">
             <div class="large-12 columns text-center">
                 <p>EL VALOR DE TU</p>
-                <h2>SUZUKI GRAND VITARA VVT, 2007</h2>
+                <h2>{get_marca} {get_modelo} {get_version}, {get_ano}</h2>
                 <p>ES DE</p>
-                <h3>$7,800<span id="low-price">.00 DÓLARES</span></h3>
+                <h3>{get_precio}<span id="low-price">.00 DÓLARES</span></h3>
             </div>
         </div>
     </section>
@@ -207,16 +207,14 @@
                     <form id="locate-form" action="#">
                         <div class="large-6 columns">
                             <span class="selector">
-                                <select name="" id="">
-                                    <option value="">Miraflores</option>
+                                <select name="distrito" id="distrito">
+                                   {exp:filtros:district region="@@@"}
                                 </select>
                             </span>
                         </div>
                         <div class="large-6 columns">
                             <span class="selector">
-                                <select name="" id="">
-                                    <option value="">Lima</option>
-                                </select>
+                                {exp:filtros:region}
                             </span>
                         </div>
                     </form>
@@ -313,3 +311,57 @@
     </script>
 </body>
 </html>
+
+<script>
+    $( "#distrito" ).change(function (evt) {
+    var str = "";
+    $( "#distrito option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='DISTRITO'){
+        $('#result').html(' ');
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      str = "distrito="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/agencia/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#result').html(response);
+             }
+           });
+      }
+    });
+  });
+
+$( "#region" ).change(function (evt) {
+    var str = "";
+    $('#distrito option:eq(0)').prop('selected', true);
+    $('#result').html(' ');
+    $( "#region option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='REGIÓN'){
+        $('#distrito option:eq(0)').prop('selected', true);
+        $('#result ').html(' ');
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      str = "region="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/distrito/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#distrito').html(response);
+             }
+           });
+      }
+    });
+  });
+
+</script>

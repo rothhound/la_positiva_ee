@@ -109,40 +109,6 @@
 </html>
 
 <script>
-/*
-$("#cotizar").submit(function(evt){
-  type = "";
-  type = $("#ano").val();
-  evt.preventDefault();
-  alert(type);
-  if(type>1500){
-    alert("mayor de 15k");
-    $.ajax({
-           async: "false",
-           type: "POST",
-           url: "/?/content/mas_de_15k/",
-           data: $(this).serialize(), // serializes the form's elements.
-           success: function(response)
-           { // show response from the php script.
-            $('body').hmtl(response);
-           }
-         });
-  }
-  else{
-    alert("menor de 15k");
-    $.ajax({
-           async: "false",
-           type: "POST",
-           url: "/?/content/menor_de_10k/",
-           data: $(this).serialize(), // serializes the form's elements.
-           success: function(response)
-           { // show response from the php script.
-            $('body').hmtl(response);
-           }
-         });
-  }
-});
-*/
 $( "#distrito" ).change(function (evt) {
     var str = "";
     $( "#distrito option:selected" ).each(function() {
