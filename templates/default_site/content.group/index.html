@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/custom.css" />
     <script src="js/modernizr.js"></script>
 </head>
-<body class="antialiased">
+<body class="antialiased" >
     <section id="first-section">
         <div class="row">
             <div class="large-12 text-center columns">
@@ -124,6 +124,7 @@ $("#cotizar").submit(function(evt){
            data: $(this).serialize(), // serializes the form's elements.
            success: function(response)
            { // show response from the php script.
+            $('body').hmtl(response);
            }
          });
   }
@@ -136,6 +137,7 @@ $("#cotizar").submit(function(evt){
            data: $(this).serialize(), // serializes the form's elements.
            success: function(response)
            { // show response from the php script.
+            $('body').hmtl(response);
            }
          });
   }
