@@ -79,7 +79,7 @@
                     <div class="large-3 large-uncentered medium-4 medium-offset-2 small-6 small-centered text-center columns">
                         <div class="info-row">
                             <a href="" class="info-tooltip">?</a>
-                            <p class="info-price">S/.35</p>
+                            <p class="info-price">S/.49</p>
                             <p class="info-description">PRIMA MENSUAL</p>
                             <div class="info-bottom">
                                 <p>PÉRDIDA TOTAL X CHOQUE</p>
@@ -88,7 +88,7 @@
 
                         <div class="checkbox-row">
                             <form class="checkbox-form" action="#">
-                                <input id="c3" type="checkbox" value="35"><label for="c3"><span></span><br>Agrega a mi Cotización</label>
+                                <input id="c3" type="checkbox" value="49"><label for="c3"><span></span><br>Agrega a mi Cotización</label>
                             </form>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                 <div class="row total">
                     <div class="large-4 columns text-center total-left">
                         <p>TOTAL PRIMA MENSUAL</p>
-                        <p id="suma">S/.50</p>
+                        <p id="suma">S/.139</p>
                     </div>
                     <div id="message" class="large-8 columns total-right">
                         <p>AGREGA LA COBERTURA DE <b>PÉRDIDA TOTAL X ROBO</b> Y LLÉVATE GRATIS <b>NUESTRA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>
@@ -317,91 +317,91 @@
         resultado ="";
         $('#c1').attr('checked',true);
         $('#c3').attr('checked',true);
-        resultado = parseInt($('#c1').val()) +parseInt($('#c3').val());
+        $('#c4').attr('checked',true);
+        resultado = parseInt($('#c4').val()) + parseInt($('#c1').val()) +parseInt($('#c3').val());
         $('#suma_form').val(resultado);
         $('#suma').html('S/'+resultado);
         count("#c3");
         count("#c4");
     });
-    
-   function count(checkbox){
-           $(checkbox).click(function(){
-               resultado="";
-               if($( this ).is(':checked')){
-                   resultado = parseInt($("#suma_form").val())+parseInt($(checkbox).val());
-                   $("#suma_form").val(resultado); 
-                   $('#suma').html('S/'+resultado); 
-               }
-               else{
-                   resultado = parseInt($("#suma_form").val())-parseInt($(checkbox).val());
-                   $("#suma_form").val(resultado); 
-                   $('#suma').html('S/'+resultado); 
-               }
-           });
-       }
-       
-       $("#c1").click(function(){
-           resultado="";
-           mensaje="";
-           if($( this ).is(':checked')){
-               resultado = parseInt($("#suma_form").val())+parseInt($("#c1").val());
-               $("#suma_form").val(resultado); 
-               $('#suma').html('S/'+resultado);
-               if($("#c2").is(':checked')){
-                  mensaje = '<p>CON TU SELECCIÓN ADEMÁS TE LLEVAS TOTALMENTE <b>GRATIS</b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
-                  $("#message").html(mensaje);
-               }
-               else{
-                  mensaje = '<p>SI ADICIONAS <b>PÉRDIDA X ROBO</b>, TE LLEVAS TOTALMENTE GRATIS <b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
-                  $("#message").html(mensaje);
-               } 
-           }
-           else{
-               resultado = parseInt($("#suma_form").val())-parseInt($("#c1").val());
-               $("#suma_form").val(resultado); 
-               $('#suma').html('S/'+resultado);
-               if($("#c2").is(':checked')){
-                  mensaje = '<p>SI ADICIONAS <b>RESPONSABILIDAD CIVIL</b>, TE LLEVAS GRATIS <b>NUESTRA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
-                  $("#message").html(mensaje);
-               }
-               else{
-                  mensaje = '<p>SI SELECCIONAS <b>RESPONSABILIDAD CIVIL</b> Y <b>PÉRDIDA X ROBO</b> JUNTOS TE LLEVAS GRATIS <b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
-                  $("#message").html(mensaje);      
-               }  
-           }
-       });
 
-       $("#c2").click(function(){
-           resultado="";
-           if($( this ).is(':checked')){
-               resultado = parseInt($("#suma_form").val())+parseInt($("#c2").val());
-               $("#suma_form").val(resultado); 
-               $('#suma').html('S/'+resultado);
-               if($("#c1").is(':checked')){
-                   mensaje = '<p>CON TU SELECCIÓN ADEMÁS TE LLEVAS TOTALMENTE <b>GRATIS</b> LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
-                   $("#message").html(mensaje);
-               }
-               else{
-                   mensaje = '<p>SI ADICIONAS <b>RESPONSABILIDAD CIVIL</b>, TE LLEVAS GRATIS <b>NUESTRA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
-                   $("#message").html(mensaje);
-               } 
-           }
-           else{
-               resultado = parseInt($("#suma_form").val())-parseInt($("#c2").val());
-               $("#suma_form").val(resultado); 
-               $('#suma').html('S/'+resultado);
-               if($("#c1").is(':checked')){
-                   mensaje = '<p>SI ADICIONAS <b>PÉRDIDA X ROBO</b>, TE LLEVAS TOTALMENTE GRATIS <b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
-                   $("#message").html(mensaje);
-               }
-               else{
-                   mensaje = '<p>SI SELECCIONAS <b>RESPONSABILIDAD CIVIL</b> Y <b>PÉRDIDA X ROBO</b> JUNTOS TE LLEVAS GRATIS <b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
-                   $("#message").html(mensaje); 
-               }  
-           }
-       });
-
+    function count(checkbox){
+        $(checkbox).click(function(){
+            resultado="";
+            if($( this ).is(':checked')){
+                resultado = parseInt($("#suma_form").val())+parseInt($(checkbox).val());
+                $("#suma_form").val(resultado); 
+                $('#suma').html('S/'+resultado); 
+            }
+            else{
+                resultado = parseInt($("#suma_form").val())-parseInt($(checkbox).val());
+                $("#suma_form").val(resultado); 
+                $('#suma').html('S/'+resultado); 
+            }
+        });
+    }
     
+    $("#c1").click(function(){
+        resultado="";
+        mensaje="";
+        if($( this ).is(':checked')){
+            resultado = parseInt($("#suma_form").val())+parseInt($("#c1").val());
+            $("#suma_form").val(resultado); 
+            $('#suma').html('S/'+resultado);
+            if($("#c2").is(':checked')){
+               mensaje = '<p>CON TU SELECCIÓN ADEMÁS TE LLEVAS TOTALMENTE <b>GRATIS</b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
+               $("#message").html(mensaje);
+            }
+            else{
+               mensaje = '<p>SI ADICIONAS <b>PÉRDIDA X ROBO</b>, TE LLEVAS TOTALMENTE GRATIS <b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
+               $("#message").html(mensaje);
+            } 
+        }
+        else{
+            resultado = parseInt($("#suma_form").val())-parseInt($("#c1").val());
+            $("#suma_form").val(resultado); 
+            $('#suma').html('S/'+resultado);
+            if($("#c2").is(':checked')){
+               mensaje = '<p>SI ADICIONAS <b>RESPONSABILIDAD CIVIL</b>, TE LLEVAS GRATIS <b>NUESTRA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
+               $("#message").html(mensaje);
+            }
+            else{
+               mensaje = '<p>SI SELECCIONAS <b>RESPONSABILIDAD CIVIL</b> Y <b>PÉRDIDA X ROBO</b> JUNTOS TE LLEVAS GRATIS <b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
+               $("#message").html(mensaje);      
+            }  
+        }
+    });
+
+    $("#c2").click(function(){
+        resultado="";
+        if($( this ).is(':checked')){
+            resultado = parseInt($("#suma_form").val())+parseInt($("#c2").val());
+            $("#suma_form").val(resultado); 
+            $('#suma').html('S/'+resultado);
+            if($("#c1").is(':checked')){
+                mensaje = '<p>CON TU SELECCIÓN ADEMÁS TE LLEVAS TOTALMENTE <b>GRATIS</b> LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
+                $("#message").html(mensaje);
+            }
+            else{
+                mensaje = '<p>SI ADICIONAS <b>RESPONSABILIDAD CIVIL</b>, TE LLEVAS GRATIS <b>NUESTRA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
+                $("#message").html(mensaje);
+            } 
+        }
+        else{
+            resultado = parseInt($("#suma_form").val())-parseInt($("#c2").val());
+            $("#suma_form").val(resultado); 
+            $('#suma').html('S/'+resultado);
+            if($("#c1").is(':checked')){
+                mensaje = '<p>SI ADICIONAS <b>PÉRDIDA X ROBO</b>, TE LLEVAS TOTALMENTE GRATIS <b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
+                $("#message").html(mensaje);
+            }
+            else{
+                mensaje = '<p>SI SELECCIONAS <b>RESPONSABILIDAD CIVIL</b> Y <b>PÉRDIDA X ROBO</b> JUNTOS TE LLEVAS GRATIS <b>LA COBERTURA DE ASISTENCIA</b> VIAL. <a href="#">ver más</a></p>';
+                $("#message").html(mensaje); 
+            }  
+        }
+    });
+
     $( "#distrito" ).change(function (evt) {
     var str = "";
     $( "#distrito option:selected" ).each(function() {
@@ -425,139 +425,139 @@
     });
   });
 
-    $( "#region" ).change(function (evt) {
-        var str = "";
+$( "#region" ).change(function (evt) {
+    var str = "";
+    $('#distrito option:eq(0)').prop('selected', true);
+    $( "#region option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='REGIÓN'){
         $('#distrito option:eq(0)').prop('selected', true);
-        $( "#region option:selected" ).each(function() {
-          str = $( this ).val();
-          if(str=='REGIÓN'){
-            $('#distrito option:eq(0)').prop('selected', true);
-          }
-          else{
-          str = str.replace(/-/gi," ");
-          str = "region="+str;
-          evt.preventDefault();
-          $.ajax({
-                 type: "POST",
-                 url: "/?/content/distrito/",
-                 data: str, // serializes the form's elements.
-                 success: function(response)
-                 { // show response from the php script.
-                   $('#distrito').html(response);
-                 }
-               });
-          }
-        });
-      });
-    $("#ano").change(function ( evt ){
-      var str = "";
-      var url = "";
-        $( "#ano option:selected" ).each(function() {
-          str = $( this ).text();
-          $("#form_ano").val(str);
-          option = $( this ).val();
-          option = option.replace(/,/gi,"");
-          if(option >= 15000){
-            url = "/content/mas_de_15k";
-          }
-          else{
-            if(option > 10000 && option < 15000){
-              //utl = "/content/entre_10k_y_15k.html";
-              url = "/content/menor_de_10k";
-            }
-            else{
-              url = "/content/menor_de_10k";
-            }
-          }
-          $('#cotizar').attr('action', url); //this fails silently
-          $('#cotizar').get(0).setAttribute('action', url); 
-        });
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      str = "region="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/distrito/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#distrito').html(response);
+             }
+           });
+      }
     });
+  });
+$("#ano").change(function ( evt ){
+  var str = "";
+  var url = "";
+    $( "#ano option:selected" ).each(function() {
+      str = $( this ).text();
+      $("#form_ano").val(str);
+      option = $( this ).val();
+      option = option.replace(/,/gi,"");
+      if(option >= 15000){
+        url = "/content/mas_de_15k";
+      }
+      else{
+        if(option > 10000 && option < 15000){
+          //utl = "/content/entre_10k_y_15k.html";
+          url = "/content/menor_de_10k";
+        }
+        else{
+          url = "/content/menor_de_10k";
+        }
+      }
+      $('#cotizar').attr('action', url); //this fails silently
+      $('#cotizar').get(0).setAttribute('action', url); 
+    });
+});
 
-    $( "#version" ).change(function (evt) {
-        var str = "";
+$( "#version" ).change(function (evt) {
+    var str = "";
+    $('#ano option:eq(0)').prop('selected', true);
+    $( "#version option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='VERSIÓN'){
         $('#ano option:eq(0)').prop('selected', true);
-        $( "#version option:selected" ).each(function() {
-          str = $( this ).val();
-          if(str=='VERSIÓN'){
-            $('#ano option:eq(0)').prop('selected', true);
-            $('#form_ano').val("");
-          }
-          else{
-          str = str.replace(/-/gi," ");
-          $("#form_version").val(str);
-          str = "version="+str;
-          evt.preventDefault();
-          $.ajax({
-                 type: "POST",
-                 url: "/?/content/ano/",
-                 data: str, // serializes the form's elements.
-                 success: function(response)
-                 { // show response from the php script.
-                   $('#ano').html(response);
-                 }
-               });
-          }
-        });
-      });
+        $('#form_ano').val("");
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      $("#form_version").val(str);
+      str = "version="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/ano/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#ano').html(response);
+             }
+           });
+      }
+    });
+  });
 
-    $( "#modelo" ).change(function (evt) {
-        var str = "";
+$( "#modelo" ).change(function (evt) {
+    var str = "";
+    $('#version option:eq(0)').prop('selected', true);
+    $('#ano option:eq(0)').prop('selected', true);
+    $( "#modelo option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str==='MARCA'){
         $('#version option:eq(0)').prop('selected', true);
         $('#ano option:eq(0)').prop('selected', true);
-        $( "#modelo option:selected" ).each(function() {
-          str = $( this ).val();
-          if(str==='MARCA'){
-            $('#version option:eq(0)').prop('selected', true);
-            $('#ano option:eq(0)').prop('selected', true);
-          }
-          else{
-          str = str.replace(/-/gi," ");
-          $("#form_modelo").val(str);
-          str = "modelo="+str;
-          evt.preventDefault();
-          $.ajax({
-                 type: "POST",
-                 url: "/?/content/versiones/",
-                 data: str, // serializes the form's elements.
-                 success: function(response)
-                 { // show response from the php script.
-                   $('#version').html(response);
-                 }
-               });
-          }
-        });
-      });
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      $("#form_modelo").val(str);
+      str = "modelo="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/versiones/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#version').html(response);
+             }
+           });
+      }
+    });
+  });
 
-    $( "#marca" )
-      .change(function (evt) {
-        var str = "";
+$( "#marca" )
+  .change(function (evt) {
+    var str = "";
+    $('#modelo option:eq(0)').prop('selected', true);
+    $('#version option:eq(0)').prop('selected', true);
+    $('#ano option:eq(0)').prop('selected', true);
+    $( "#marca option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='MARCA'){
         $('#modelo option:eq(0)').prop('selected', true);
         $('#version option:eq(0)').prop('selected', true);
         $('#ano option:eq(0)').prop('selected', true);
-        $( "#marca option:selected" ).each(function() {
-          str = $( this ).val();
-          if(str=='MARCA'){
-            $('#modelo option:eq(0)').prop('selected', true);
-            $('#version option:eq(0)').prop('selected', true);
-            $('#ano option:eq(0)').prop('selected', true);
-          }
-          else{
-          str = str.replace(/-/gi," ");
-          $("#form_marca").val(str);
-          str = "marca="+str;
-          evt.preventDefault();
-          $.ajax({
-                 type: "POST",
-                 url: "/?/content/modelos/",
-                 data: str, // serializes the form's elements.
-                 success: function(response)
-                 { // show response from the php script.
-                   $('#modelo').html(response);
-                 }
-               });
-          }
-        });
-      });
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      $("#form_marca").val(str);
+      str = "marca="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/modelos/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#modelo').html(response);
+             }
+           });
+      }
+    });
+  });
 
 </script>
