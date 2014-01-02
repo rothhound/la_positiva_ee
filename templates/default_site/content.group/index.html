@@ -43,7 +43,7 @@
         <div class="row full-width">
             <div class="large-12 small-10 small-centered columns">
                 <div class="row">
-                    <form class="quote" action="/content/mas_de_15k/" type="POST">
+                    <form id="cotizar" class="quote" type="POST">
                         <div class="large-3 medium-6 columns">
                             <span class="selector-big">
                                 {exp:filtros:brand}
@@ -110,7 +110,7 @@
 
 <script>
 
-$("#cotizar").click(function(evt){
+$("#cotizar").submit(function(evt){
   type = "";
   type = ("#form_precio").val();
   evt.preventDefault();
