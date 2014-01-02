@@ -168,20 +168,16 @@ $("#ano").change(function ( evt ){
       $("#form_ano").val(str);
       option = $( this ).val();
       option = option.replace(/,/gi,"");
-      alert(option);
       if(option >= 15000){
         url = "/content/mas_de_15k";
-        alert(url);
       }
       else{
         if(option > 10000 && option < 15000){
           //utl = "/content/entre_10k_y_15k.html";
-          url = "/content/mas_de_15k";
-          alert(url);
+          url = "/content/menor_de_10k";
         }
         else{
-          url = "/content/mas_de_15k";
-          alert(url);
+          url = "/content/menor_de_10k";
         }
       }
       $('#cotizar').attr('action', url); //this fails silently
