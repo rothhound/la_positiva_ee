@@ -167,6 +167,7 @@ $("#ano").change(function ( evt ){
       str = $( this ).text();
       $("#form_ano").val(str);
       option = $( this ).val();
+      option = option.replace(/,/gi,"");
       alert(option);
       if(option >= 15000){
         url = "/content/mas_de_15k";
