@@ -461,9 +461,8 @@ $("#ano").change(function ( evt ){
         url = "/content/mas_de_15k";
       }
       else{
-        if(option > 10000 && option < 15000){
-          //utl = "/content/entre_10k_y_15k.html";
-          url = "/content/menor_de_10k";
+        if(option >= 10000){
+          utr = "/content/entre_10k_y_15k.html";
         }
         else{
           url = "/content/menor_de_10k";
