@@ -9,17 +9,18 @@
     <script src="{site_url}/js/modernizr.js"></script>
 </head>
 <body class="antialiased">
+    {exp:get_post_vars parse="inward"}
     <section id="second-section">
         <div class="row">
             <div class="large-12 columns text-center">
                 <p>EL VALOR DE TU</p>
-                <h2>{get_marca} {get_modelo} {get_version}, {get_ano}</h2>
+                <h2>"{get_marca}" "{get_modelo}" "{get_version}", "{get_ano}"</h2>
                 <p>ES DE</p>
-                <h3>{get_precio}<span id="low-price">.00 DÓLARES</span></h3>
+                <h3>"{get_precio}"<span id="low-price">.00 DÓLARES</span></h3>
             </div>
         </div>
     </section>
-
+    {/exp:get_post_vars}
     <section id="fourth-section">
         <div class="row">
             <div id="auto-seguro" class="large-4 text-center columns">
