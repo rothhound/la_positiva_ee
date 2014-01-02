@@ -9,6 +9,7 @@
     <script src="{site_url}/js/modernizr.js"></script>
 </head>
 <body class="antialiased">
+    {exp:get_post_vars parse="inward"}
     <section id="second-section">
         <div class="row">
             <div class="large-12 columns text-center">
@@ -19,7 +20,7 @@
             </div>
         </div>
     </section>
-
+    {/exp:get_post_vars}
     <div class="fixed-footer-top-trigger"></div>
 
     <section id="third-section">
