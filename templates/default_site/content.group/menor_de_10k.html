@@ -214,7 +214,7 @@
                         </div>
                         <div class="large-6 columns">
                             <span class="selector">
-                                {exp:filtros:region}
+                                   {exp:filtros:region}
                             </span>
                         </div>
                     </form>
@@ -257,39 +257,38 @@
 
     <section class="fixed-footer">
         <div class="row">
-            <form class="quote quote-fixed" action="'#">
-                <div class="large-3 medium-3 hide-for-small-only columns">
-                    <span class="selector-big">
-                        <select name="" id="">
-                            <option value="MARCA">MARCA</option>
-                        </select>
-                    </span>
-                </div>
-                <div class="large-2 medium-2 hide-for-small-only columns">
-                    <span class="selector-big">
-                        <select name="" id="">
-                            <option value="MODELO">MODELO</option>
-                        </select>
-                    </span>
-                </div>
-                <div class="large-2 medium-2 hide-for-small-only columns">
-                    <span class="selector-big">
-                        <select name="" id="">
-                            <option value="VERSIÓN">VERSIÓN</option>
-                        </select>
-                    </span>
-                </div>
-                <div class="large-2 medium-2 hide-for-small-only columns">
-                    <span class="selector-big">
-                        <select name="" id="">
-                            <option value="AÑO">AÑO</option>
-                        </select>
-                    </span>
-                </div>
-                <div class="large-3 large-uncentered medium-3 medium-uncentered small-7 small-centered columns">
-                    <button id="fixed-button" type="submit">COTIZAR OTRO VEHÍCULO</button>
-                </div>
-            </form>
+            <form id="cotizar" class="quote" type="POST" action="#">
+                        <div class="large-3 medium-6 columns">
+                            <span class="selector-big">
+                                {exp:filtros:brand}
+                            </span>
+                        </div>
+                        <div class="large-2 medium-6 columns">
+                            <span class="selector-big">
+                                <select name="modelo" id="modelo">
+                                  <option value="MODELO" selected>MODELO</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="large-2 medium-6 columns">
+                            <span class="selector-big">
+                                <select name="version" id="version">
+                                  <option value="VERSIÓN" selected>VERSIÓN</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="large-2 medium-6 columns">
+                            <span class="selector-big">
+                                <select name="precio" id="ano">
+                                  <option value="AÑO" selected>AÑO</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="large-3 large-uncentered medium-6 medium-centered columns">
+                        <input id="form_ano" type="text" name="ano">
+                        <button class="expand" type="submit">COTIZAR</button>
+                        </div>
+                    </form>
         </div>
     </section>
 
@@ -358,6 +357,119 @@ $( "#region" ).change(function (evt) {
              success: function(response)
              { // show response from the php script.
                $('#distrito').html(response);
+             }
+           });
+      }
+    });
+  });
+$("#ano").change(function ( evt ){
+  var str = "";
+  var url = "";
+    $( "#ano option:selected" ).each(function() {
+      str = $( this ).text();
+      $("#form_ano").val(str);
+      option = $( this ).val();
+      alert(option);
+      if(option >= 15000){
+        url = "/content/mas_de_15k";
+        alert(url);
+      }
+      else{
+        if(option > 10000 && option < 15000){
+          //utl = "/content/entre_10k_y_15k.html";
+          url = "/content/mas_de_15k";
+          alert(url);
+        }
+        else{
+          url = "/content/mas_de_15k";
+          alert(url);
+        }
+      }
+      $('#cotizar').attr('action', url); //this fails silently
+      $('#cotizar').get(0).setAttribute('action', url); 
+    });
+});
+
+$( "#version" ).change(function (evt) {
+    var str = "";
+    $('#ano option:eq(0)').prop('selected', true);
+    $( "#version option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='VERSIÓN'){
+        $('#ano option:eq(0)').prop('selected', true);
+        $('#form_ano').val("");
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      $("#form_version").val(str);
+      str = "version="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/ano/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#ano').html(response);
+             }
+           });
+      }
+    });
+  });
+
+$( "#modelo" ).change(function (evt) {
+    var str = "";
+    $('#version option:eq(0)').prop('selected', true);
+    $('#ano option:eq(0)').prop('selected', true);
+    $( "#modelo option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str==='MARCA'){
+        $('#version option:eq(0)').prop('selected', true);
+        $('#ano option:eq(0)').prop('selected', true);
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      $("#form_modelo").val(str);
+      str = "modelo="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/versiones/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#version').html(response);
+             }
+           });
+      }
+    });
+  });
+
+$( "#marca" )
+  .change(function (evt) {
+    var str = "";
+    $('#modelo option:eq(0)').prop('selected', true);
+    $('#version option:eq(0)').prop('selected', true);
+    $('#ano option:eq(0)').prop('selected', true);
+    $( "#marca option:selected" ).each(function() {
+      str = $( this ).val();
+      if(str=='MARCA'){
+        $('#modelo option:eq(0)').prop('selected', true);
+        $('#version option:eq(0)').prop('selected', true);
+        $('#ano option:eq(0)').prop('selected', true);
+      }
+      else{
+      str = str.replace(/-/gi," ");
+      $("#form_marca").val(str);
+      str = "marca="+str;
+      evt.preventDefault();
+      $.ajax({
+             type: "POST",
+             url: "/?/content/modelos/",
+             data: str, // serializes the form's elements.
+             success: function(response)
+             { // show response from the php script.
+               $('#modelo').html(response);
              }
            });
       }
