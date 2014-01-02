@@ -128,8 +128,8 @@ $("#cotizar").click(function(evt){
          });
   }
   else{
+    alert("menor de 115k");
     $.ajax({
-      alert("menor de 115k");
            async: "false",
            type: "POST",
            url: "/?/content/menor_de_10k/",
