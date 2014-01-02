@@ -112,9 +112,9 @@
 
 $("#cotizar").submit(function(evt){
   type = "";
-  type = ("#ano option:selected").val();
+  type = ("#ano").val();
   evt.preventDefault();
-  console.log(type);
+  alert(type);
   if(type>1500){
     alert("mayor de 115k");
     $.ajax({
