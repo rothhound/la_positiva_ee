@@ -202,17 +202,18 @@ $("#ano").change(function ( evt ){
       $("#form_ano").val(str);
       option = $( this ).val();
       alert(option);
-      if(option>15000){
-        url = "/?/content/mas_de_15k.html";
+      if(option>=15000){
+        url = "/content/mas_de_15k.html";
         alert(url);
       }
       else{
-        if(option<15001 || option>10001){
-          utl = "/?/content/entre_10k_y_15k.html";
+        if(option<=15001 && option=>10001){
+          //utl = "/content/entre_10k_y_15k.html";
+          url = "/content/menor_de_10k.html";
           alert(url);
         }
         else{
-          url = "/?/content/menor_de_10k.html";
+          url = "/content/menor_de_10k.html";
           alert(url);
         }
       }
