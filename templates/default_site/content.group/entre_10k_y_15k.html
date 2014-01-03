@@ -161,25 +161,29 @@
 
         <div class="row">
             <div class="large-6 large-uncentered small-11 small-centered columns">
-                <form id="contact-form" action="/content/gracias">
+                {exp:user:register form_id="contact-form" return="/content/gracias"}
                     <div class="row">
                         <div class="large-6 columns">
-                            <input type="text" placeholder="Nombre">
+                            <input type="text" name="username" placeholder="Nombre"/></p>
                         </div>
                         <div class="large-6 columns">
-                            <input type="text" placeholder="Apellido">
+                            <input type="text" name="surname" placeholder="Apellido">
                         </div>
                     </div>
                     <div class="row">
                         <div class="large-12 columns">
-                            <input type="text" placeholder="Correo Electrónico">
+                            <input type="text" name="email" placeholder="Correo Electrónico">
                         </div>
                     </div>
                     <div class="row">
                         <div class="large-12 columns">
-                            <input type="text" placeholder="Teléfono">
+                            <input type="text" name="phone" placeholder="Teléfono">
+                            <input type="hidden" name="password" value="Lapositiva2014"/>
+                            <input type="hidden" name="password_confirm" value="Lapositiva2014"/>
+                            <input type="hidden" name="accept_terms" value="y" />
                         </div>
                     </div>
+                    <!--
                     <div class="row">
                         <div class="large-12 columns">
                             <input id="checkbox1" type="checkbox"><label for="checkbox1"><span></span>Enviar copia de la cotización a mi correo</label>
@@ -190,13 +194,13 @@
                             <input id="checkbox2" type="checkbox"><label for="checkbox2"><span></span>Quiero que me contacten por teléfono</label>
                         </div>
                     </div>
-
+                    -->
                     <div class="row">
                         <div class="large-8 small-8 small-centered columns">
                             <button class="button-orange" type="submit">DESCARGAR COTIZACIÓN POR PDF</button>
                         </div>
                     </div>
-                </form>
+                {/exp:user:register}
             </div>
             <div id="locate" class="large-5 large-uncentered small-11 small-centered columns">
                 <div class="row">
@@ -323,6 +327,8 @@
         $('#suma').html('S/'+resultado);
         count("#c3");
         count("#c4");
+        $("#contact-form").attr("action","/content/gracias");
+        $('#contact-form').get(0).setAttribute('action', "/content/gracias"); 
     });
 
     function count(checkbox){
