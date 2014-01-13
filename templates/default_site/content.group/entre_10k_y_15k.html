@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La Positiva</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans|Bowlby+One+SC' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{site_url}/css/foundation.css" />
@@ -60,7 +61,7 @@
                     <div class="large-3 large-uncentered medium-4 small-6 small-centered text-center columns">
                         <div class="info-row">
                             <a href="" class="info-tooltip">?</a>
-                            <p class="info-price">S/.19</p>
+                            <p class="info-price">S/.26</p>
                             <p class="info-description">PRIMA MENSUAL</p>
                             <div class="info-bottom">
                                 <p>PÉRDIDA X ROBO</p>
@@ -69,7 +70,7 @@
 
                         <div class="checkbox-row">
                             <form class="checkbox-form" action="#">
-                                <input id="c2" type="checkbox" value="19"><label for="c2"><span></span><br>Agrega a mi Cotización</label>
+                                <input id="c2" type="checkbox" value="26"><label for="c2"><span></span><br>Agrega a mi Cotización</label>
                             </form>
                         </div>
                     </div>
@@ -139,7 +140,7 @@
         </div>
 
         <div class="row">
-            <div class="large-7 large-centered small-11 small-centered columns">
+            <div class="large-9 large-centered small-11 small-centered columns">
                 <div class="row total">
                     <div class="large-4 columns text-center total-left">
                         <p>TOTAL PRIMA MENSUAL</p>
@@ -205,7 +206,7 @@
             <div id="locate" class="large-5 large-uncentered small-11 small-centered columns">
                 <div class="row">
                     <div class="large-12 columns">
-                        <p class="marketing">UBICA EL PUNTO DE VENTA MÁS CERCANO</p>
+                        <p class="marketing locate">UBICA EL PUNTO DE VENTA MÁS CERCANO</p>
                     </div>
                 </div>
                 <div class="row">
@@ -262,36 +263,36 @@
 
     <section class="fixed-footer">
         <div class="row">
-            <form id="cotizar" class="quote" type="POST" action="#">
-                        <div class="large-3 medium-6 columns">
+            <form id="cotizar" class="quote quote-fixed" type="POST" action="#">
+                        <div class="large-3 medium-3 hide-for-small-only columns">
                             <span class="selector-big">
                                 {exp:filtros:brand}
                             </span>
                         </div>
-                        <div class="large-2 medium-6 columns">
+                        <div class="large-2 medium-2 hide-for-small-only columns">
                             <span class="selector-big">
                                 <select name="modelo" id="modelo">
                                   <option value="MODELO" selected>MODELO</option>
                                 </select>
                             </span>
                         </div>
-                        <div class="large-2 medium-6 columns">
+                        <div class="large-2 medium-2 hide-for-small-only columns">
                             <span class="selector-big">
                                 <select name="version" id="version">
                                   <option value="VERSIÓN" selected>VERSIÓN</option>
                                 </select>
                             </span>
                         </div>
-                        <div class="large-2 medium-6 columns">
+                        <div class="large-2 medium-2 hide-for-small-only columns">
                             <span class="selector-big">
                                 <select name="precio" id="ano">
                                   <option value="AÑO" selected>AÑO</option>
                                 </select>
                             </span>
                         </div>
-                        <div class="large-3 large-uncentered medium-6 medium-centered columns">
+                        <div class="large-3 large-uncentered medium-3 medium-uncentered small-7 small-centered columns">
                         <input id="form_ano" type="hidden" name="ano">
-                        <button class="expand" type="submit">COTIZAR</button>
+                        <button class="expand" type="submit">COTIZAR OTRO VEHÍCULO</button>
                         </div>
                     </form>
         </div>
